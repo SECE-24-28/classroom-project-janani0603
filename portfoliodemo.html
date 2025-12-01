@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janani Nagamanickam — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+
+    :root {
+      --bg: #ffffff;
+      --card: #f7f9fc;
+      --accent: #c1cde1;
+      --text: #111827;
+      --muted: #4b5563;
+      --radius: 14px;
+      --shadow: 0 6px 18px rgba(193,205,225,0.3);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: var(--bg);
+      color: gray;
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .main {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    header .headline {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #9fb8e0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 28px;
+      flex: 0 0 84px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 { margin: 0; font-size: 22px; color: black; }
+    p.lead { margin: 6px 0 0; color: var(--muted); }
+
+    .section {
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(193,205,225,0.3);
+    }
+
+    .section h2 {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      color: black;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: rgba(193,205,225,0.15);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: black;
+    }
+
+    .projects { display: grid; gap: 12px; }
+    .project {
+      background: rgba(193,205,225,0.1);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(193,205,225,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(193,205,225,0.35);
+    }
+    .project h3 { margin: 0; font-size: 15px; color: black; }
+    .project p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+
+    .actions { display: flex; gap: 10px; margin-top: 12px; }
+    .btn {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid rgba(193,205,225,0.3);
+      background: transparent;
+      color: var(--accent);
+      transition: all 0.2s ease;
+    }
+    .btn:hover { background: var(--accent); color: white; }
+    .btn.primary { background: var(--accent); color: white; border: none; box-shadow: var(--shadow); }
+
+    .side {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid rgba(193,205,225,0.3);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-item { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+    .contact-item strong { color: var(--text); font-weight: 600; }
+
+    .chat-placeholder {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      padding: 12px 14px;
+      border-radius: 999px;
+      box-shadow: 0 8px 25px rgba(193,205,225,0.4);
+      border: 1px solid rgba(193,205,225,0.3);
+      cursor: pointer;
+    }
+    .chat-placeholder .dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      font-weight: 700;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .chat-placeholder .label { color: var(--muted); font-size: 13px; }
+
+    footer { margin-top: 20px; color: var(--muted); font-size: 13px; text-align: center; }
+
+    @media (max-width:980px){ .container{grid-template-columns:1fr; padding-bottom:120px} .side{order:2} }
+    @media (max-width:480px){ .avatar{width:64px;height:64px;font-size:22px} .chat-placeholder{right:14px;bottom:14px;padding:10px} body{padding:20px} }
+  </style>
+</head>
+
+<body>
+  <div class="container" role="main">
+    <main class="main" aria-label="Main content">
+      <header>
+        <div class="headline">
+          <div class="avatar">JN</div>
+          <div>
+            <h1>Janani Nagamanickam</h1>
+            <p class="lead">AI & Fullstack developer — building intelligent web experiences and data-driven apps.</p>
+          </div>
+        </div>
+
+        <div class="section" style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <h2>About</h2>
+            <p style="margin:6px 0 0;color:var(--muted);max-width:70ch">
+              I build interactive web apps that combine beautiful UIs with AI. This portfolio showcases projects in NLP, web apps, and automation.
+            </p>
+          </div>
+
+          <div style="text-align:right;">
+            <div style="font-size:12px;color:var(--muted)">Location</div>
+            <div style="font-weight:700">Chennai, India</div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Skills</h2>
+        <div class="tags" role="list">
+          <div class="tag" role="listitem">Python</div>
+          <div class="tag" role="listitem">JavaScript (React)</div>
+          <div class="tag" role="listitem">Node.js</div>
+          <div class="tag" role="listitem">NLP</div>
+          <div class="tag" role="listitem">LangChain / RAG</div>
+          <div class="tag" role="listitem">Docker</div>
+          <div class="tag" role="listitem">pandas / NumPy</div>
+          <div class="tag" role="listitem">OpenAI / LLMs</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Selected Projects</h2>
+        <div class="projects">
+          <article class="project" tabindex="0" aria-labelledby="proj1-title">
+            <h3 id="proj1-title">AI Resume Agent (Portfolio)</h3>
+            <p>Interactive chatbot trained on resume content, embedded on portfolio. Built with Chatbase (embed) and custom frontend UI.</p>
+          </article>
+
+          <article class="project" tabindex="0" aria-labelledby="proj2-title">
+            <h3 id="proj2-title">Twitter Sentiment Dashboard</h3>
+            <p>Realtime sentiment analysis pipeline using Tweepy, NLTK, and a dashboard built in React with charts and filtering.</p>
+          </article>
+
+          <article class="project" tabindex="0" aria-labelledby="proj3-title">
+            <h3 id="proj3-title">Expense Manager</h3>
+            <p>Python + Flask app with CSV import/export, category detection, and ML-assisted expense tagging.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="resume-heading">
+        <h2 id="resume-heading">Resume</h2>
+        <p style="color:var(--muted);margin:0 0 12px 0">Download a PDF version of my resume or interact with the AI agent (chat bubble) to ask questions about my experience.</p>
+        <div class="actions">
+          <a class="btn primary" href="#" download="Janani_Nagamanickam_Resume.pdf">⬇️ Download Resume</a>
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">✉️ Contact</button>
+        </div>
+      </section>
+
+      <footer>
+        Built with ❤️ • Available for collaborations and open-source contributions.
+      </footer>
+    </main>
+
+    <aside class="side" aria-label="Sidebar">
+      <div class="card">
+        <h2>Contact</h2>
+        <div class="contact-item"><strong>Email</strong><span style="margin-left:auto">janani@example.com</span></div>
+        <div class="contact-item"><strong>LinkedIn</strong><span style="margin-left:auto">linkedin.com/in/janani</span></div>
+        <div class="contact-item"><strong>GitHub</strong><span style="margin-left:auto">github.com/janani</span></div>
+      </div>
+
+      <div class="card">
+        <h2>Quick Bio</h2>
+        <p style="margin:0;color:var(--muted)">I enjoy building AI-infused web apps, working on NLP tasks, and designing intuitive UIs. My work focuses on production-ready solutions with clear documentation.</p>
+      </div>
+
+      <div class="card" id="contact">
+        <h2>Availability</h2>
+        <p style="margin:0;color:var(--muted)">Open for freelance and contract work. Available to discuss ML/AI, web apps, and product prototyping.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- AI Agent Placeholder -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="05JQoCE90P8ZDemXdF2Vx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+
+  <script>
+    function openChatIfAvailable() {
+      if(typeof openChat === 'function') openChat();
+      else if(window.__chatbase && typeof window.__chatbase.open === 'function') window.__chatbase.open();
+    }
+  </script>
+</body>
+</html>
